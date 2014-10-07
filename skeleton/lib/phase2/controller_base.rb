@@ -5,11 +5,12 @@ module Phase2
     # Setup the controller
     def initialize(req, res)
       @req, @res = req, res
+      @already_built_response = false
     end
 
     # Helper method to alias @already_built_response
     def already_built_response?
-      !!@already_built_response
+      @already_built_response
     end
 
     # Set the response status code and header
