@@ -9,8 +9,9 @@ module Phase6
 
     # checks if pattern matches path and method matches request method
     def matches?(req)
-      req.path =~ self.pattern &&
-        self.http_method == req.request_method.downcase.to_sym
+      return false unless req.path =~ self.pattern
+      return false if self.http_method != req.request_method.downcase.to_sym
+      true
     end
 
     # use pattern to pull out route params (save for later?)
